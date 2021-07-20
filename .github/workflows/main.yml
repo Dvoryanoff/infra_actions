@@ -61,6 +61,9 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+          name: installing sudo
+          run: |
+            apt update && apt install sudo
           script: |
             # Выполняет pull образа с DockerHub
             sudo docker pull dvoryanoff/infra_actions
